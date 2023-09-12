@@ -1,0 +1,22 @@
+---
+import { ROUTES } from '@/consts';
+import NavItem from './NavItem.astro';
+---
+
+<nav class='flex'>
+  <ul class='menu-desktop'>
+    {
+      ROUTES.map((route) => (
+        <li class='px-2'>
+          <NavItem {...route}>{route.name}</NavItem>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .menu-desktop {
+    @apply hidden lg:flex justify-center items-center;
+  }
+</style>

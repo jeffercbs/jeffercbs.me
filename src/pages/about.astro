@@ -1,0 +1,40 @@
+---
+import { DEV } from '@/consts';
+import PageMDX from '@/layouts/PageMDX.astro';
+import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+
+const aboutContent = await getEntry('pages', 'about');
+const { Content, headings } = await aboutContent?.render();
+---
+
+<PageMDX {...aboutContent} {headings}>
+  <!-- Presentation -->
+  <div
+    class='relative h-auto md:py-12 py-6 mt-24 md:max-w-[80%] mx-auto'
+    slot='heading'
+  >
+    <div class='flex sm:flex-row flex-col gap-6 relative'>
+      <!-- Avatar -->
+      <div class='sm:w-80 md:h-64 w-4/5 mx-auto relative lg:px-6'>
+        <Image
+          src='/jeffercbs.jpg'
+          alt='jeffercbs'
+          width={100}
+          height={100}
+          loading='lazy'
+          class='w-full h-full rounded-full object-fill'
+        />
+      </div>
+      <!-- Description -->
+      <div class='md:mt-8 mt-3 flex-1 flex flex-col justify-center'>
+        <h1 class='font-bold text-4xl mb-4'>{DEV.name}</h1>
+        <p class='lg:text-lg text-sm font-normal relative pb-4 opacity-60'>
+          <span>{DEV.description}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Content -->
+  <Content />
+</PageMDX>

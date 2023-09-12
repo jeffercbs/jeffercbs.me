@@ -1,0 +1,53 @@
+---
+import { Link } from '@/libs';
+import { REPO_URL } from '@/consts';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+type Props = CollectionEntry<'blog' | 'pages'> & {
+  author?: string;
+  avatar?: string;
+  readingTime?: string;
+};
+
+const {
+  avatar = '/jeffercbs.jpg',
+  author = 'Jeferson Estiven Barrero',
+  slug,
+  collection,
+} = Astro.props;
+
+const { remarkPluginFrontmatter } = await Astro.props.render();
+const readingTime = remarkPluginFrontmatter.readingTime;
+const EDIT = `${REPO_URL}/src/content/${collection}/${slug}.mdx`;
+---
+
+<div class='block my-10'>
+  <div class='flex gap-4'>
+    <a href='/about'>
+      <Image
+        src={avatar}
+        alt={author}
+        width={60}
+        height={60}
+        class='w-14 h-14 rounded-full'
+      />
+    </a>
+    <div class='flex flex-col justify-center flex-1'>
+      <a href='/jeffercbs' class='font-semibold text-lg'>{author}</a>
+      <div class='flex flex-wrap gap-2 font-normal opacity-70'>
+        <span>
+          {readingTime}
+        </span>
+        <span>
+          <Link href={EDIT} external>editar articulo</Link>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  span {
+    @apply text-xs font-medium capitalize;
+  }
+</style>

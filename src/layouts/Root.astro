@@ -1,0 +1,60 @@
+---
+import Social from '@/components/Social.astro';
+import BaseHead from '@components/BaseHead.astro';
+import Footer from '@components/Footer.astro';
+import Navigation from '@components/Navigation.astro';
+import { Header } from '@components/index';
+
+import '@fontsource/poppins/100.css';
+import '@fontsource/poppins/200.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/800.css';
+import '@fontsource/poppins/900.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image } = Astro.props;
+---
+
+<!doctype html>
+<html lang='es'>
+  <head>
+    <BaseHead {title} {description} {image} />
+  </head>
+  <body>
+    <Header client:only>
+      <Social />
+      <Navigation />
+    </Header>
+    <main class='hero'>
+      <slot />
+    </main>
+    <Footer />
+    <style is:global>
+      body,
+      html {
+        @apply bg-black scroll-smooth antialiased text-white relative box-border;
+        font-family: 'Poppins', sans-serif;
+      }
+      .hero {
+        @apply mx-auto w-full lg:max-w-6xl z-50 lg:px-0 px-3;
+      }
+      .separator {
+        border-top-width: 1px;
+        border-image-source: linear-gradient(to left, #000, #f3f4f6, #000);
+        border-image-slice: 1;
+        background-image: radial-gradient(
+          at top center,
+          rgba(243, 244, 246, 0.15),
+          transparent 60%
+        );
+        height: 4rem;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Root from '../layouts/Root.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+
+const projects = await getCollection('projects');
+---
+
+<Root
+  title='Proyectos Destacado - @jeffercbs'
+  description='Explorando Implementaciones Prácticas, Desafíos Superados y Resultados en un monto de proyectos'
+>
+  <h1 class='font-bold text-4xl uppercase mt-24 py-8'>Todos los proyectos</h1>
+  <section class='project-container'>
+    {projects.reverse().map((project) => <ProjectCard {...project} />)}
+  </section>
+</Root>
+
+<style>
+  .project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-gap: 1rem;
+  }
+</style>

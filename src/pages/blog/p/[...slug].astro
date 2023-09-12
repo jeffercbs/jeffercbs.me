@@ -1,0 +1,54 @@
+---
+import Author from '@/components/Author.astro';
+import { REPO } from '@/consts';
+import { Flag, Return } from '@/icons';
+import { Link } from '@/libs';
+import PageMDX from '@layouts/PageMDX.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export const prerender = true;
+export async function getStaticPaths() {
+  const entrys = await getCollection('blog');
+  return entrys.map((entry) => ({
+    params: { slug: entry.slug },
+    props: entry,
+  }));
+}
+
+type Props = CollectionEntry<'blog'>;
+const entry = Astro.props;
+const {
+  data: { title, description },
+  slug,
+} = entry;
+const { Content, headings, remarkPluginFrontmatter } = await entry.render();
+
+const ISSUES = `${REPO}/issues/new?assignees=&labels=article&title="[fixed] ${slug}"`;
+---
+
+<PageMDX {...entry} {headings}>
+  <section slot='heading' class='md:mt-4'>
+    <div class='py-12 max-w-[80%] mx-auto'>
+      <h1 class='title'>{title}</h1>
+      <p class='desc'>{description}</p>
+    </div>
+    <div class='flex justify-between py-6 px-4 border-t'>
+      <Link href='/blog' class='hover:underline'>
+        <Return />
+      </Link>
+      <Link href={ISSUES} external>
+        <Flag />
+      </Link>
+    </div>
+  </section>
+  <Content />
+</PageMDX>
+
+<style>
+  .title {
+    @apply text-3xl md:text-5xl font-extrabold leading-10;
+  }
+  .desc {
+    @apply text-base md:text-xl font-light leading-7 opacity-80 pt-6 mb-4;
+  }
+</style>

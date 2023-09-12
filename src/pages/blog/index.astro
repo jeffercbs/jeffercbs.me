@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import Root from '../../layouts/Root.astro';
+import PostCard from '../../components/PostCard.astro';
+
+const blogEntrys = (await getCollection('blog')).sort(
+  (a, b) => b.data.created.valueOf() - a.data.created.valueOf()
+);
+---
+
+<Root
+  title='Descubre mucho más de mi contenido - blog'
+  description='Soy Jeferson Barrero y hablo de tecnología, programación y experiencias personales'
+>
+  <h1 class='font-bold text-4xl uppercase mt-24 py-8'>
+    Todas las publicaciones
+  </h1>
+  <div class='featured'>
+    {
+      blogEntrys
+        .slice(0, 3)
+        .map((entry, i) => (
+          <PostCard
+            {...entry}
+            class:list={[
+              { 'md:row-span-4': i == 0 },
+              { 'md:row-span-2': i != 0 },
+            ]}
+            featured
+          />
+        ))
+    }
+  </div>
+</Root>
+
+<style>
+  .featured {
+    @apply grid md:grid-rows-4 md:grid-flow-col gap-4;
+    @apply h-auto lg:h-[500px];
+  }
+</style>

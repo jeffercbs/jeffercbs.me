@@ -1,0 +1,37 @@
+---
+import CursorShadow from '@/components/CursorShadow.svelte';
+import Root from '../layouts/Root.astro';
+import { DEV } from '@/consts';
+---
+
+<Root description='' title='Home.'>
+  <CursorShadow client:load />
+  <!-- intro -->
+  <section class='w-full h-screen grid place-content-center'>
+    <div class='w-full block z-20 text-center mx-auto lg:max-w-3xl'>
+      <h1 class='title flex flex-col'>
+        <span class='text-3xl'>Hi,</span>
+        <span>{DEV.name}</span>
+      </h1>
+      <p class='text-2xl opacity-80 capitalize'>Software Engineer</p>
+      <div class='mt-8'>
+        <a href='/about' class='intro-button animate-bounce'>¿Quién soy?</a>
+      </div>
+    </div>
+    <div class='gradient absolute inset-x-0 md:w-1/4 w-2/4 m-auto h-[80vh]'>
+    </div>
+  </section>
+</Root>
+
+<style>
+  .title {
+    @apply text-transparent text-7xl md:font-bold font-medium capitalize;
+    @apply relative max-[700px]:text-6xl tracking-wide;
+    @apply bg-clip-text bg-gradient-to-b dark:from-[#fde089] dark:to-[#ec8b26] from-[#ffd24e] to-[#b96205];
+  }
+  .intro-button {
+    @apply bg-amber-100 text-amber-600;
+    @apply shadow-lg shadow-amber-600;
+    @apply capitalize px-6 py-2 rounded-full text-lg;
+  }
+</style>

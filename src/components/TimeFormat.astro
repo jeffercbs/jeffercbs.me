@@ -1,0 +1,24 @@
+---
+type Props = {
+  date: string | Date;
+};
+
+let { date } = Astro.props;
+date = typeof date === 'string' ? new Date(date) : date;
+---
+
+<time datetime={date.toISOString()}>
+  {
+    date.toLocaleDateString('en-us', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })
+  }
+</time>
+
+<style>
+  time {
+    @apply text-gray-300 text-sm;
+  }
+</style>

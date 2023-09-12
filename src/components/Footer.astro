@@ -1,0 +1,19 @@
+---
+import Social from './Social.astro';
+import { Link } from '@/libs';
+---
+
+<footer class='h-28 mt-16'>
+  <div class='hero separator'></div>
+  <div class='hero py-8'>
+    <Social />
+    <div class='flex justify-between py-8'>
+      <small class='font-medium leading-tight'>
+        &copy; Hello world, este proyecto es de código abierto.
+      </small>
+      <small>
+        <Link href='https://github.com/jeffercbs'>@jeffercbs</Link>
+      </small>
+    </div>
+  </div>
+</footer>

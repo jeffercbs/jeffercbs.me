@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import TimeFormat from './TimeFormat.astro';
+import { getImage } from '@/scripts/getImages';
+
+type Props = CollectionEntry<'blog'> & {
+  class?: string;
+  featured?: boolean;
+};
+const { title, description, created, image } = Astro.props.data;
+const { class: classes, featured } = Astro.props;
+---
+
+<article
+  aria-label={Astro.props.slug}
+  class={`group py-3 ${classes}`}
+  style={`${
+    featured ? `background-image: url(${getImage(image ?? 'example')});` : ''
+  }`}
+>
+  <a href={`/blog/p/${Astro.props.slug}`} class='overlay'>
+    <div class='content'>
+      <TimeFormat date={created} />
+      <h3 class='text-2xl mb-8 font-bold capitalize'>{title}</h3>
+      {featured ? <p class='synopsis'>{description}</p> : null}
+    </div>
+  </a>
+</article>
+
+<style>
+  article {
+    @apply relative overflow-hidden w-full min-h-[250px];
+    @apply shadow-2xl border-2 rounded-md bg-cover bg-center object-cover;
+    border-image-source: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.6) 100%
+    );
+    border-image-slice: 1;
+  }
+  article::after {
+    content: '';
+    @apply absolute inset-0;
+    @apply bg-gradient-to-b from-black/40 via-black/80 to-black;
+  }
+  .overlay {
+    @apply h-full;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.5) 60%,
+      rgba(0, 0, 0, 0.95) 90%
+    );
+  }
+  .content {
+    @apply z-10 absolute -bottom-[30%] md:-bottom-[5em] group-hover:bottom-10 text-left;
+    @apply ease-in-out transition-all duration-1000 delay-100;
+    @apply opacity-80 group-hover:opacity-100;
+    left: min(3em, 3vmin);
+    right: min(3em, 3vmin);
+  }
+
+  .synopsis {
+    @apply text-sm font-medium opacity-70;
+    @apply delay-700 ease-in-out transition-opacity;
+    @apply group-hover:opacity-100;
+  }
+</style>
