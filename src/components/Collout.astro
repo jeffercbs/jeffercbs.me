@@ -1,0 +1,43 @@
+---
+import { Link as LinkIcon } from '@/icons';
+type Props = {
+  href?: string;
+  icon?: string;
+};
+
+const { href, icon } = Astro.props;
+---
+
+{
+  href ? (
+    <a
+      {href}
+      target='_blank'
+      aria-label={href}
+      rel='noopener noreferrer'
+      class='collout'
+    >
+      <span class='capitalize text-lg font-medium'>
+        <slot />
+      </span>
+      <LinkIcon />
+    </a>
+  ) : (
+    <div class='collout'>
+      <span class='capitalize text-lg font-medium'>
+        <slot />
+      </span>
+      {icon ? icon : <slot name='icon' />}
+    </div>
+  )
+}
+
+<style>
+  .collout {
+    @apply mb-4 border rounded flex items-center justify-between px-3 py-4 h-[62px] w-full;
+    @apply text-white border-neutral-700 bg-neutral-800;
+  }
+  a {
+    @apply flex gap-2 no-underline;
+  }
+</style>

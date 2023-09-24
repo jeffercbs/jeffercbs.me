@@ -1,0 +1,22 @@
+---
+import Navigation from './Navigation.svelte';
+import Social from './Social.astro';
+import { Image } from 'astro:assets';
+---
+
+<header class='header' transition:name='header' transition:persist>
+  <div class='w-full h-full flex justify-between items-center hero mx-auto'>
+    <Image src='/logo.svg' alt='jeffercbs' width='150' height='60' />
+    <Navigation client:load>
+      <Social />
+    </Navigation>
+  </div>
+</header>
+
+<style>
+  .header {
+    @apply flex justify-center items-center w-full h-20 z-[900];
+    @apply fixed inset-y-0 top-0 border-gray-300/20 border-b;
+    @apply bg-black/40 backdrop-blur-lg backdrop-contrast-125;
+  }
+</style>
