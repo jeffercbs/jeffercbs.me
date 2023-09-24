@@ -17,16 +17,15 @@
 <svelte:window on:scroll={$isOpen ? toggleZoom : null} />
 
 <button on:click={toggleZoom}>
-  <figure class={$isOpen ? 'open dark:bg-black/90 bg-white/90' : ''}>
+  <figure style="z-index: 100;" class={$isOpen ? 'open bg-black/90' : ''}>
     <div class={$isOpen ? 'cursor-zoom-out' : 'cursor-zoom-in'}>
       <img
         src={getImage(src)}
         {alt}
         width={500}
         height={100}
-        sizes="(max-width: 800px) 100vw, 800px"
         loading="lazy"
-        class="w-full max-h-screen object-contain"
+        class="w-full max-h-screen object-cover"
       />
     </div>
     {#if author.length > 0}
@@ -39,6 +38,6 @@
 
 <style>
   .open {
-    @apply grid place-content-center fixed inset-0 z-50 m-0;
+    @apply grid place-content-center fixed inset-0 m-0;
   }
 </style>

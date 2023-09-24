@@ -10,16 +10,19 @@ const projects = await getCollection('projects');
   title='Proyectos Destacado - @jeffercbs'
   description='Explorando Implementaciones Prácticas, Desafíos Superados y Resultados en un monto de proyectos'
 >
-  <h1 class='font-bold text-4xl uppercase mt-24 py-8'>Todos los proyectos</h1>
-  <section class='project-container'>
-    {projects.reverse().map((project) => <ProjectCard {...project} />)}
-  </section>
+  <main class='hero'>
+    <div class='mt-24 mb-12 py-8'>
+      <h1 class='font-bold text-4xl capitalize'>Todos las proyectos</h1>
+    </div>
+    <section class='project-container'>
+      {projects.reverse().map((project) => <ProjectCard {...project} />)}
+    </section>
+  </main>
 </Root>
 
 <style>
   .project-container {
-    display: grid;
+    @apply grid gap-5;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    grid-gap: 1rem;
   }
 </style>

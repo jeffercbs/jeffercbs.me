@@ -33,7 +33,6 @@
   });
 
   const scrollToHeading = (event) => {
-    event.preventDefault();
     const targetId = event.target.getAttribute('data-attr-id');
     if (targetId) {
       const targetElement = document.querySelector(`#${targetId}`);
@@ -57,7 +56,7 @@
           <a
             href="#{header.slug}"
             data-attr-id={header.slug}
-            on:click={scrollToHeading}
+            on:click|preventDefault={scrollToHeading}
           >
             {header.text}
           </a>

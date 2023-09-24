@@ -1,5 +1,5 @@
 ---
-import { Tag } from '@/lIbs/index';
+import { Tag } from '@/libs';
 import type { CollectionEntry } from 'astro:content';
 
 type Props = CollectionEntry<'projects'>;
@@ -42,7 +42,7 @@ const { title, description, tags, repo } = entry.data;
   .card .card-container {
     @apply h-full grid-rows-[repeat(3,auto)_1fr] overflow-hidden z-10;
     @apply relative p-4 sm:p-8 rounded grid gap-4 content-start  duration-300;
-    @apply hover:shadow-2xl hover:shadow-amber-800/80;
+    @apply hover:shadow-2xl hover:shadow-amber-800/60;
     @apply focus:ring-2 focus:ring-amber-200 focus:border-transparent;
   }
   .desc {

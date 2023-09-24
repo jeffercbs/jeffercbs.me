@@ -1,24 +1,28 @@
 ---
 type Props = {
-  date: string | Date;
+  date: Date | string;
+  class?: string;
+  format?: Intl.DateTimeFormatOptions;
 };
 
-let { date } = Astro.props;
+let {
+  date,
+  class: classes,
+  format = {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  },
+} = Astro.props;
 date = typeof date === 'string' ? new Date(date) : date;
 ---
 
-<time datetime={date.toISOString()}>
-  {
-    date.toLocaleDateString('en-us', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    })
-  }
+<time datetime={date.toISOString()} class={classes}>
+  {date.toLocaleDateString('en-us', format)}
 </time>
 
 <style>
   time {
-    @apply text-gray-300 text-sm;
+    @apply text-current text-sm;
   }
 </style>

@@ -1,9 +1,10 @@
 ---
-import Author from '@/components/Author.astro';
 import { REPO } from '@/consts';
 import { Flag, Return } from '@/icons';
 import { Link } from '@/libs';
+import { getImage } from '@/scripts/getImages';
 import PageMDX from '@layouts/PageMDX.astro';
+import { Image } from 'astro:assets';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export const prerender = true;
@@ -18,10 +19,10 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'blog'>;
 const entry = Astro.props;
 const {
-  data: { title, description },
+  data: { title, description, image },
   slug,
 } = entry;
-const { Content, headings, remarkPluginFrontmatter } = await entry.render();
+const { Content, headings } = await entry.render();
 
 const ISSUES = `${REPO}/issues/new?assignees=&labels=article&title="[fixed] ${slug}"`;
 ---
@@ -29,8 +30,16 @@ const ISSUES = `${REPO}/issues/new?assignees=&labels=article&title="[fixed] ${sl
 <PageMDX {...entry} {headings}>
   <section slot='heading' class='md:mt-4'>
     <div class='py-12 max-w-[80%] mx-auto'>
-      <h1 class='title'>{title}</h1>
-      <p class='desc'>{description}</p>
+      <h1 class='title' transition:name={`title-${slug}`}>{title}</h1>
+      <p class='desc' transition:name={`synopsis-${slug}`}>{description}</p>
+      <Image
+        src={getImage(image || 'example')}
+        alt={description}
+        width={1000}
+        height={400}
+        transition:name={`image-${slug}`}
+        class='rounded-md shadow-xl mt-8 max-h-[500px] object-cover'
+      />
     </div>
     <div class='flex justify-between py-6 px-4 border-t'>
       <Link href='/blog' class='hover:underline'>
@@ -47,6 +56,7 @@ const ISSUES = `${REPO}/issues/new?assignees=&labels=article&title="[fixed] ${sl
 <style>
   .title {
     @apply text-3xl md:text-5xl font-extrabold leading-10;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500;
   }
   .desc {
     @apply text-base md:text-xl font-light leading-7 opacity-80 pt-6 mb-4;

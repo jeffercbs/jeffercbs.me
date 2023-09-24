@@ -1,17 +1,17 @@
 ---
 import HeadingOfContent from '@/components/HeadingOfContent.svelte';
-import type { MarkdownHeading } from 'astro';
-import type { CollectionEntry } from 'astro:content';
 import Author from '@components/Author.astro';
-import { Tag } from '@/lIbs/index';
+import type { MarkdownHeading } from 'astro';
 import { SEO } from 'astro-seo';
+import type { CollectionEntry } from 'astro:content';
 import Root from './Root.astro';
+import '@/styles/prism-purple.css';
 
 type Props = CollectionEntry<'blog' | 'pages'> & {
   headings: MarkdownHeading[];
 };
 const {
-  data: { title, description, tags, created, image = '/mockup.png' },
+  data: { title, description, created, image = '/mockup.png' },
   headings,
 } = Astro.props;
 ---
@@ -28,50 +28,42 @@ const {
       article: {
         publishedTime: created.toString(),
         authors: ['https://github.com/jeffercbs'],
-        tags,
       },
     }}
   />
 </head>
 
 <Root {title} {description}>
-  <article>
-    <slot name='heading' />
-    <div class='separator'></div>
-    <div class='flex md:flex-row flex-col relative'>
-      <div class='entry prose prose-invert prose-p:p-0'>
-        <slot />
-        {
-          tags && tags.length > 0 ? (
-            <div class='flex flex-wrap gap-3 mt-6'>
-              {tags.map((tag: string) => (
-                <Tag {tag} />
-              ))}
-            </div>
-          ) : null
-        }
+  <main class='hero lg:mt-20 mt-12'>
+    <article>
+      <slot name='heading' />
+      <div class='separator'></div>
+      <div class='flex md:flex-row flex-col relative hero'>
+        <div class='entry prose prose-invert prose-p:p-0 -z-10 prose-h3:mt-0'>
+          <slot />
+        </div>
+        <aside class='aside relative'>
+          <Author {...Astro.props} />
+          {
+            headings.length > 0 ? (
+              <HeadingOfContent {headings} client:only />
+            ) : null
+          }
+        </aside>
       </div>
-      <aside class='aside'>
-        <Author {...Astro.props} />
-        {
-          headings.length > 0 ? (
-            <HeadingOfContent {headings} client:only />
-          ) : null
-        }
-      </aside>
-    </div>
-  </article>
+    </article>
+  </main>
 </Root>
 
 <style>
   .entry {
     @apply flex-1 w-full max-w-none my-3;
     @apply flex flex-col md:px-10 px-0;
-    @apply w-full break-words;
+    @apply w-full break-words z-10;
   }
   .aside {
     @apply hidden md:flex md:flex-col;
-    @apply max-w-sm w-[30%] h-fit z-0;
+    @apply max-w-sm w-[30%] h-fit;
     @apply md:sticky top-24;
   }
 </style>

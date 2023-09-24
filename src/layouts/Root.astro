@@ -1,9 +1,8 @@
 ---
-import Social from '@/components/Social.astro';
 import BaseHead from '@components/BaseHead.astro';
 import Footer from '@components/Footer.astro';
-import Navigation from '@components/Navigation.astro';
-import { Header } from '@components/index';
+import Header from '@components/Header.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 import '@fontsource/poppins/100.css';
 import '@fontsource/poppins/200.css';
@@ -25,15 +24,11 @@ const { title, description, image } = Astro.props;
 <html lang='es'>
   <head>
     <BaseHead {title} {description} {image} />
+    <ViewTransitions />
   </head>
   <body>
-    <Header client:only>
-      <Social />
-      <Navigation />
-    </Header>
-    <main class='hero'>
-      <slot />
-    </main>
+    <Header />
+    <slot />
     <Footer />
     <style is:global>
       body,
@@ -42,7 +37,17 @@ const { title, description, image } = Astro.props;
         font-family: 'Poppins', sans-serif;
       }
       .hero {
-        @apply mx-auto w-full lg:max-w-6xl z-50 lg:px-0 px-3;
+        @apply mx-auto w-full lg:max-w-7xl z-50 lg:px-0 px-3;
+      }
+      .b-image {
+        @apply border;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.2),
+            rgba(255, 255, 255, 0.6) 100%
+          ),
+          round;
       }
       .separator {
         border-top-width: 1px;

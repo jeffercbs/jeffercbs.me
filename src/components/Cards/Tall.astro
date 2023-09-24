@@ -1,0 +1,74 @@
+---
+import { getImage } from '@/scripts/getImages';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import TimeFormat from '../TimeFormat.astro';
+
+type Props = CollectionEntry<'blog'> & {
+  class?: string;
+  feactured?: boolean;
+};
+const { title, description, created, image } = Astro.props.data;
+const { class: classes, slug, feactured = false } = Astro.props;
+---
+
+<article
+  aria-label={slug}
+  class:list={[
+    'group py-3 px-2 relative overflow-hidden w-full',
+    'border-t border-gray-500 lg:mb-0 mb-8',
+    classes,
+    { 'lg:h-96 lg:col-span-3 sm:col-span-2': feactured },
+    { 'md:h-auto': !feactured },
+  ]}
+>
+  <a
+    href={`/blog/p/${slug}`}
+    class:list={[
+      'h-full',
+      { 'grid lg:grid-cols-3 gap-3': feactured },
+      { 'flex flex-col': !feactured },
+    ]}
+  >
+    <div
+      class:list={[
+        'rounded-sm md:col-span-2',
+        { 'lg:order-2 order-1': feactured },
+        { 'max-h-52': !feactured },
+      ]}
+    >
+      <Image
+        src={getImage(image || 'example')}
+        alt={slug}
+        width={feactured ? 1600 : 800}
+        height={feactured ? 850 : 425}
+        quality={'mid'}
+        transition:name={`image-${slug}`}
+        style='transform-style: preserve-3d;'
+        class:list={[
+          'group-hover:scale-105 transition-transform duration-500 ease-in-out',
+          'object-cover w-full h-full',
+        ]}
+      />
+    </div>
+    <div class='md:order-1 order-2 py-2'>
+      <TimeFormat date={created} class='font-mono' />
+      <h3
+        transition:name={`title-${slug}`}
+        class:list={[
+          'mb-8 pt-2 font-bold capitalize',
+          { 'text-3xl': feactured },
+          { 'text-xl': !feactured },
+        ]}
+      >
+        {title}
+      </h3>
+      <p
+        class='text-base font-normal opacity-80'
+        transition:name={`synopsis-${slug}`}
+      >
+        {description}
+      </p>
+    </div>
+  </a>
+</article>

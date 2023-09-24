@@ -1,37 +1,80 @@
 ---
-import CursorShadow from '@/components/CursorShadow.svelte';
-import Root from '../layouts/Root.astro';
+import CardSmall from '@/components/Cards/Small.astro';
 import { DEV } from '@/consts';
+import { getCollection } from 'astro:content';
+import Root from '../layouts/Root.astro';
+
+const entrys = (await getCollection('blog'))
+  .slice(0, 4)
+  .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf());
 ---
 
 <Root description='' title='Home.'>
-  <CursorShadow client:load />
-  <!-- intro -->
-  <section class='w-full h-screen grid place-content-center'>
-    <div class='w-full block z-20 text-center mx-auto lg:max-w-3xl'>
-      <h1 class='title flex flex-col'>
-        <span class='text-3xl'>Hi,</span>
-        <span>{DEV.name}</span>
-      </h1>
-      <p class='text-2xl opacity-80 capitalize'>Software Engineer</p>
-      <div class='mt-8'>
-        <a href='/about' class='intro-button animate-bounce'>¿Quién soy?</a>
+  <main class='max-w-screen-2xl overflow-hidden'>
+    <!-- intro -->
+    <section class='intro' id='intro'>
+      <div class='intro-container'>
+        <h1 class='intro-title'>
+          <span class='text-3xl'>Hi,</span>
+          <span>{DEV.name}</span>
+        </h1>
+        <p class='text-2xl opacity-80 capitalize text-black'>
+          Software Engineer
+        </p>
+        <div class='mt-8'>
+          <a href='/about' class='intro-button animate-bounce'>¿Quién soy?</a>
+        </div>
       </div>
-    </div>
-    <div class='gradient absolute inset-x-0 md:w-1/4 w-2/4 m-auto h-[80vh]'>
-    </div>
-  </section>
+    </section>
+
+    <section class='bg-amber-500 w-screen h-auto text-black lg:px-4'>
+      <div class='hero grid lg:grid-cols-2 py-12'>
+        <div class='block gap-5'>
+          <h1 class='text-3xl font-bold'>Ultimos articulos</h1>
+          <p class='pb-8'>
+            hablo de tecnología, programación y experiencias personales
+          </p>
+          <a href='/blog' class='bg-black px-6 py-3 text-white rounded-full'>
+            leer más
+          </a>
+        </div>
+
+        <ul class='border-l-4 border-black border-opacity-70 pl-2'>
+          {
+            entrys.map(({ slug, data: { title, tags, created } }, i) => (
+              <li class='flex items-center my-6 py-2 font-bold'>
+                <span class='opacity-50 text-3xl w-auto px-2'>0{++i}</span>
+                <CardSmall
+                  title={title}
+                  tags={tags}
+                  created={created}
+                  slug={slug}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
 </Root>
 
 <style>
-  .title {
-    @apply text-transparent text-7xl md:font-bold font-medium capitalize;
+  .intro {
+    @apply w-full h-screen grid place-content-center relative;
+  }
+  .intro-container {
+    @apply w-full block z-20 text-center mx-auto lg:max-w-4xl;
+  }
+  .intro-title {
+    @apply flex flex-col;
+    @apply text-transparent text-8xl md:font-extrabold font-medium capitalize;
     @apply relative max-[700px]:text-6xl tracking-wide;
     @apply bg-clip-text bg-gradient-to-b dark:from-[#fde089] dark:to-[#ec8b26] from-[#ffd24e] to-[#b96205];
   }
   .intro-button {
     @apply bg-amber-100 text-amber-600;
     @apply shadow-lg shadow-amber-600;
-    @apply capitalize px-6 py-2 rounded-full text-lg;
+    @apply capitalize px-8 py-3 rounded-full text-lg;
   }
 </style>
