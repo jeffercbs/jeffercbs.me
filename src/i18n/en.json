@@ -1,0 +1,97 @@
+{
+  "TITLE_SEO": "Jeferson Barrero @jeffercbs - Frontend, JavaScript, React, CSS, Performance",
+  "DESCRIPTION_SEO": "Software Enginer | Young web developer | Technology enthusiast | @platzi student | content creator | occasional writer.",
+  "KEYWORD_SEO": "Frontend, JavaScript, React, CSS, Performance",
+
+  "HEADER": [
+    {
+      "LABEL": "Home",
+      "LINK": "/#"
+    },
+    {
+      "LABEL": "About",
+      "LINK": "/#about"
+    },
+    {
+      "LABEL": "Experience",
+      "LINK": "/#experience"
+    },
+    {
+      "LABEL": "Projects",
+      "LINK": "/#projects"
+    },
+    {
+      "LABEL": "Blog",
+      "LINK": "/blog"
+    }
+  ],
+
+  "INTRO_TITLE": "Hey, I'm Jeffecbs",
+  "INTRO_BADGE": "Available to work",
+  "INTRO_DESCRIPTION": {
+    "FIRST": "Web develoment and Content creator",
+    "SECOND": "From Ibagué, Colombia",
+    "THIRD": "Specialized in creating unique applications."
+  },
+
+  "EXPERIENCE_TITLE": "Experience",
+  "EXPERIENCE": [
+    {
+      "ICON": "<img src='/logo.svg' alt='logo' class='size-10'/>",
+      "TITLE": "Freelance Web Developer",
+      "DATE": "Currently...",
+      "DESCRIPTION": "<p>As an <strong>independent web developer</strong>, I specialize in crafting unique applications for brands and businesses, spanning a full spectrum of needs, from static websites to online stores. My focus is on delivering innovative and functional technological solutions tailored to the specific goals and requirements of each client.</p>",
+      "LINK": "/services/web"
+    },
+    {
+      "ICON": "<img src='/logo_misiontic.png' width='40' height='40' alt='logo'/>",
+      "TITLE": "MisionTIC2022",
+      "DATE": "September 2022",
+      "DESCRIPTION": "<p>My participation in <strong>Misión TIC 2022</strong>, since its pilot phase in August 2020, was characterized by comprehensive training in web projects with a specific focus on <strong>Node.js</strong>. Actively collaborating with young individuals from across the country on joint projects not only expanded my technical skills but also provided a valuable experience of nationwide teamwork.</p> <p>Complementary activities, such as <strong>professional talks</strong> and the visit to the <strong>Entrepreneurs' Park</strong>, added significant value to my education. The talks offered enriching perspectives and practical advice, while the park visit provided a tangible insight into the technological needs of the country. These complementary elements enhanced my overall understanding and offered a deeper vision of the practical application of technology in the national context.</p>"
+    }
+  ],
+
+  "EDUCATION_TITLE": "Education",
+  "EDUCATION_PLATZI_PROFILE": "View platzi profile.",
+  "EDUCATION": [
+    {
+      "TITLE": "PLATZI",
+      "DESCRIPTION": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil aut corrupti temporibus inventore facere atque unde ratione, nisi cum repellat!",
+      "ICON": "platzi",
+      "BUTTON_LABEL": "Show credential",
+      "ITEMS": [
+        {
+          "TITLE": "Frontend Developer Course",
+          "DATE": "Oct 2022",
+          "DESCRIPTION": "<p>I delved into the basics of HTML and CSS, exploring its structure, elements, and CSS properties. I acquired advanced skills in layout and responsive design.</p>",
+          "CODE": "Credential ID 5f6e5de5-5717-4bcd-96c2-32071fdef27f",
+          "LINK": "https://platzi.com/p/jeffercbs/curso/2467-frontend-developer/diploma/detalle/"
+        },
+        {
+          "TITLE": "Fundamentals of Software Engineering",
+          "DATE": "Oct 2022",
+          "DESCRIPTION": "<p>I explored the basics of electronics, deepened my knowledge of various operating systems and understood the networks that support the operation of the Internet.</p>",
+          "CODE": "Credential ID e3037410-94bf-40e9-9755-2e677e1d729a",
+          "LINK": "https://platzi.com/p/jeffercbs/curso/1098-ingenieria/diploma/detalle/"
+        },
+        {
+          "TITLE": "Git and GitHub Professional Course",
+          "DATE": "Apr 2022",
+          "DESCRIPTION": "<p>I acquired essential knowledge ranging from fundamental concepts to advanced project management. I developed the ability to clone repositories and efficiently manage my projects, both locally and on collaborative platforms such as GitHub.</p>",
+          "CODE": "Credential ID 4f045261-e515-48be-ae32-7068b833be7",
+          "LINK": "https://platzi.com/p/jeffercbs/curso/2467-frontend-developer/diploma/detalle/"
+        },
+        {
+          "TITLE": "Python Challenge",
+          "DATE": "Oct 2022",
+          "DESCRIPTION": "<p>I followed an optimized path to strengthen my foundation in Python programming, focusing especially on backend development.</p>",
+          "CODE": "Credential ID 2a474433-8298-474a-b82d-3c5d4b75472a",
+          "LINK": "https://platzi.com/p/jeffercbs/curso/2613-python-challenge-final-exam/diploma/detalle/"
+        }
+      ]
+    }
+  ],
+
+  "ABOUT_TITLE": "About me",
+  "ABOUT_DESC": "<p><strong>My name is Jeferson Barrero</strong>, but my friends call me Jef. I started programming at the age of 14 as a self-taught enthusiast, exploring the web and discovering the world of programming. Throughout my journey, I have developed a passionate dedication to web development.</p> <p>As a student at <strong>PLATZI</strong> and a participant in the <strong>'MisiónTIC2022'</strong> project, supported by the Colombian government and <em><strong>MINTIC</strong></em>, I have gained solid knowledge in various areas of programming and web development. Through <strong>involvement in personal and collaborative projects with clients</strong>, I have strengthened my skills, not only as a programmer but also in creating unique applications.</p> <p>These experiences have been my bridge to the practical application of knowledge in different contexts, significantly shaping my professional profile. I have complemented this journey with additional online courses with <strong>SENA</strong>, and currently, I am a student in <strong><em>3D modeling for the industry</em></strong>.</p> <p>I aspire to excel in the field of web development and programming. My vision includes not only personal growth but also <strong><em>actively contributing to the community</em></strong>. I am an active contributor on <strong><em>GitHub</em></strong>, participating in projects aimed at promoting free and open programming education.</p>"
+}
