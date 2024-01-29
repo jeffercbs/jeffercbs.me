@@ -1,0 +1,13 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import type { CollectionEntry } from "astro:content";
+
+export type Props = CollectionEntry<"articles">;
+const {
+  data: { title },
+} = Astro.props;
+---
+
+<Layout title={title}>
+  <slot />
+</Layout>

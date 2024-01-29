@@ -1,0 +1,31 @@
+---
+import { getI18n } from "@/i18n";
+import LanguageSelector from "./LanguageSelector.astro";
+
+const { currentLocale } = Astro;
+const i18n = getI18n({ currentLocale });
+---
+
+<nav
+  id="mobile-menu"
+  class="bg-black -translate-y-full transition-transform md:hidden w-full text-center grid fixed top-0 inset-x-0 h-dvh place-content-center -z-[1]"
+>
+  <ul class="flex flex-col gap-y-4 *:font-semibold">
+    {
+      i18n.HEADER.map(({ LINK, LABEL }) => (
+        <li class="opacity-70 hover:opacity-100 transition-opacity ease-in-out">
+          <a
+            href={LINK}
+            class="text-3xl hover:underline transition-all ease-in-out duration-300 text__glowing"
+          >
+            {LABEL}
+          </a>
+        </li>
+      ))
+    }
+
+    <li>
+      <LanguageSelector />
+    </li>
+  </ul>
+</nav>

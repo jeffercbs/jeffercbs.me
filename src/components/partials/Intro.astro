@@ -1,0 +1,58 @@
+---
+import { getI18n } from "@/i18n";
+import Link from "../Link.astro";
+import Badge from "../Badge.astro";
+
+const { currentLocale } = Astro;
+const i18n = getI18n({ currentLocale });
+---
+
+<section class="relative h-dvh flex-col justify-start" id="#">
+  <div
+    class="hero size-full flex flex-col items-center justify-center gap-y-3 relative"
+    id="intro"
+  >
+    <a
+      href="https://linkedin.com/in/jeffercbs"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Badge>{i18n.INTRO_BADGE}</Badge>
+    </a>
+    <h1
+      class="font-bold flex flex-col pb-6 lg:pb-1 text-[2.3rem] md:text-5xl lg:text-6xl leading-5"
+      set:html={i18n.INTRO_TITLE}
+    />
+    <h3 class="md:max-w-xl text-xl md:text-2xl text-center leading-5">
+      <span>{i18n.INTRO_DESCRIPTION.FIRST}.</span>
+      <span class="text-red-200">{i18n.INTRO_DESCRIPTION.SECOND}.</span>
+      <span class="text-yellow-200">{i18n.INTRO_DESCRIPTION.THIRD}</span>
+    </h3>
+
+    <nav class="flex flex-wrap gap-4 mt-8">
+      <Link href="https://linkedin.com/in/jeffercbs" icon="linkedin" external>
+        Linkedin
+      </Link>
+      <Link href="https://github.com/jeffercbs" icon="github" external>
+        Github
+      </Link>
+      <Link href="mailto:jebarrero14@gmail.com" icon="mail" external>
+        jebarrero14@gmail.com
+      </Link>
+    </nav>
+  </div>
+</section>
+
+<style>
+  #intro {
+    animation: opacity linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes opacity {
+    to {
+      @apply opacity-60;
+    }
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import { Icon } from "astro-icon/components";
+const { currentLocale = "es", url } = Astro;
+const pathname = url.pathname;
+let restUrl = "";
+
+if (pathname.startsWith("/en")) {
+  const segments = pathname.split("/").splice(2);
+  restUrl = "/" + segments.join("/").replace(/\/+$/, "");
+} else {
+  restUrl = pathname.replace(/\/+$/, "");
+}
+
+const LOCALES: Record<
+  string,
+  {
+    name: string;
+    href: string;
+    flag: string;
+    code: string;
+  }
+> = {
+  es: {
+    code: "es",
+    href: restUrl,
+    name: "Español",
+    flag: "spain",
+  },
+  en: {
+    code: "en",
+    href: `/en${restUrl}`,
+    name: "English",
+    flag: "english",
+  },
+};
+const localeData = LOCALES[currentLocale];
+const currentPath = pathname.replace(localeData.href, "");
+const locales = Object.values(LOCALES).filter(
+  (locale) => locale.code !== currentLocale
+);
+---
+
+<div class="relative inline-block text-left">
+  <div
+    class="group text-white rounded-md text-xs font-semibold bg-black/30 hover:bg-black/70 transition-all"
+  >
+    <button
+      type="button"
+      class="inline-flex justify-start items-center w-full gap-x-2 px-3 py-2"
+      aria-expanded="true"
+      aria-haspopup="true"
+    >
+      <Icon name={localeData.flag} class="w-4 h-4" />
+      <span set:text={localeData.name} />
+      <Icon name="chevron" class="w-4 h-4" />
+    </button>
+    <ul
+      class="group-hover:block group-hover:animate-fade-down group-hover:animate-duration-200 hidden pt-0.5 absolute w-full"
+    >
+      {
+        locales.map((locale) => (
+          <li class="">
+            <a
+              class="rounded-md bg-black/30 hover:bg-black/70 whitespace-no-wrap inline-flex justify-start items-center w-full gap-x-2 px-3 py-2"
+              href={`${locale.href}${currentPath}`}
+            >
+              <Icon name={locale.flag} class="w-4 h-4" />
+              {locale.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

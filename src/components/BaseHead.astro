@@ -1,0 +1,31 @@
+---
+import { getI18n } from "@/i18n";
+
+export type Props = {
+  title: string;
+};
+
+const { currentLocale } = Astro;
+const i18n = getI18n({ currentLocale });
+
+const { title } = Astro.props;
+const template = `${i18n.TITLE_SEO} | ${title}`;
+---
+
+<meta charset="UTF-8" />
+<title>{template}</title>
+<meta name="description" content={i18n.DESCRIPTION_SEO} />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/logo.svg" />
+<meta property="og:title" content={template} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:type" content="website" />
+<meta property="og:description" content={i18n.DESCRIPTION_SEO} />
+<meta property="canonical" content={new URL(Astro.url.pathname, Astro.site)} />
+<meta name="generator" content={Astro.generator} />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="keywords" content={i18n.KEYWORD_SEO} />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />

@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title={Astro.props.title}>
+  <section class="h-[500px] flex flex-col justify-center">
+    <div class="hero flex">
+      <h1>{Astro.props.title}</h1>
+    </div>
+  </section>
+  <article class="hero prose prose-invert">
+    <slot />
+  </article>
+</Layout>

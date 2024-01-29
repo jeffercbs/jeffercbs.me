@@ -1,0 +1,30 @@
+---
+import { getI18n } from "@/i18n";
+import ListItem from "../ListItem.astro";
+
+const { currentLocale } = Astro;
+const i18n = getI18n({ currentLocale });
+---
+
+<section id="experience" class="bg-black relative">
+  <div class="hero flex md:flex-row flex-col py-8">
+    <div class="mb-6 md:w-1/5">
+      <h2
+        aria-label="experience"
+        class="text-2xl uppercase text-white/80 font-semibold sticky top-0"
+      >
+        {i18n.EXPERIENCE_TITLE}
+      </h2>
+    </div>
+
+    <ol class="flex-1 relative border-s border-gray-500 ml-3 md:max-w-4xl">
+      {
+        i18n.EXPERIENCE.map((experiencie) => (
+          <li class="mb-10 ms-4">
+            <ListItem {...experiencie} />
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

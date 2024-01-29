@@ -1,0 +1,40 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Tool from "../Tool.astro";
+
+const { props } = Astro;
+---
+
+<Layout title={props.title}>
+  <main class="mt-20 hero">
+    <div class="h-[220px] flex flex-col items-start justify-center">
+      <h2 class="flex flex-col md:text-4xl text-2xl">
+        <span>Building <span class="text-yellow-300">web</span></span>
+        <span><span>websites</span> and <span>apps</span></span>
+      </h2>
+    </div>
+
+    <div class="flex">
+      <div class="w-2/6">
+        <h1>klasa</h1>
+        <p>Integra lo utimo en tecnologia a tu proximo proyecto</p>
+      </div>
+      <div class="flex-1 flex gap-4 flex-wrap">
+        {
+          [
+            "react",
+            "html",
+            "planetscale",
+            "supabase",
+            "tailwind",
+            "postgresql",
+            "cloudinary",
+            "shopify",
+            "figma",
+            "aws",
+          ].map((tool) => <Tool {tool} />)
+        }
+      </div>
+    </div>
+  </main>
+</Layout>

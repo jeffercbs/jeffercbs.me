@@ -1,0 +1,45 @@
+---
+import { getI18n } from "@/i18n";
+import ListItem from "../ListItem.astro";
+import Link from "../Link.astro";
+
+const { currentLocale } = Astro;
+const i18n = getI18n({ currentLocale });
+---
+
+<section id="education" class="h-fit py-8 bg-black relative">
+  <div class="hero flex md:flex-row flex-col py-8">
+    <div class="mb-6 md:w-1/5">
+      <h2
+        aria-label="education"
+        class="text-2xl uppercase text-white/80 font-semibold"
+      >
+        {i18n.EDUCATION_TITLE}
+      </h2>
+    </div>
+    <div class="flex-1">
+      <div class="relative border-s border-gray-500 md:ml-3 ml-1">
+        {
+          i18n.EDUCATION.map(({ ITEMS, BUTTON_LABEL, ...resData }) => (
+            <div class="ms-4 pt-4">
+              <ListItem {...resData}>
+                <ol class="relative md:border-s border-gray-500 md:ml-6 ml-0">
+                  {ITEMS.map((experiencie) => (
+                    <li class="mb-10 md:ms-1">
+                      <ListItem {...experiencie} {BUTTON_LABEL} external />
+                    </li>
+                  ))}
+                </ol>
+              </ListItem>
+            </div>
+          ))
+        }
+      </div>
+      <div class="w-full flex justify-end">
+        <Link href="https://platzi.com/p/jeffercbs" external>
+          {i18n.EDUCATION_PLATZI_PROFILE}
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>

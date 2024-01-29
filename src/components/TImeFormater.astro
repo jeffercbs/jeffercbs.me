@@ -1,0 +1,15 @@
+---
+export type Props = {
+  date: string | Date;
+};
+
+let { date } = Astro.props;
+
+if (typeof date === "string") {
+  date = new Date(date);
+}
+---
+
+<span>
+  <time datetime=""></time>
+</span>
