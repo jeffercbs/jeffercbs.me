@@ -1,0 +1,22 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import type { GetStaticPaths } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+type Props = CollectionEntry<"articles">[];
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const articles = await getCollection("articles");
+  return paginate(articles, { pageSize: 4 });
+}) satisfies GetStaticPaths;
+
+const { pathname } = Astro.url;
+if (pathname.startsWith("/en")) {
+  const segments = pathname.split("/").slice(2);
+  Astro.redirect(`/blog/${segments}`);
+}
+---
+
+<Layout title="blog">
+  <h1>blog</h1>
+</Layout>
