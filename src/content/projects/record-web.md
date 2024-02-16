@@ -1,7 +1,7 @@
 ---
-title: "sistema escolar de votación"
-description: "kmksmak mdadad ajd adja djad ajd ajda djadajd adad"
-cover: ""
+title: "grabador de pantalla"
+description: "Aplicación wev que utiliza tecnologias como Zustand para gestionar el estado. Integra APIs nativas del navegador para la grabación de pantalla y webcam. "
+cover: "/interface.jpg"
 repo: "https://github.com/"
 ---
 
