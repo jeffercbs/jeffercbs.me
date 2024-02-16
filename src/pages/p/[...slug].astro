@@ -4,6 +4,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import Project from "@/components/pages/Project.astro";
 
 export type Props = CollectionEntry<"projects">;
+
 export const getStaticPaths = (async () => {
   const pages = await getCollection("projects");
 

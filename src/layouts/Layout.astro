@@ -18,7 +18,7 @@ const { title } = Astro.props;
     <BaseHead title={title} />
     <ViewTransitions />
   </head>
-  <body class="bg-black text-white">
+  <body class="bg-black text-white relative overflow-x-hidden">
     <Header />
     <slot />
     <Footer />
@@ -34,7 +34,6 @@ const { title } = Astro.props;
         font-family: "Onest Variable", system-ui, sans-serif;
         scroll-behavior: smooth;
       }
-
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -51,18 +50,8 @@ const { title } = Astro.props;
       ::-webkit-scrollbar-thumb:hover {
         background: rgba(255, 255, 255, 0.5);
       }
-      .card-active {
-        @apply shadow-2xl z-20 scale-125;
-      }
       .hero {
-        @apply lg:max-w-6xl w-full mx-auto px-4;
-      }
-      .shadow__glowing {
-        transition: box-shadow 0.3s ease;
-      }
-      .link_active {
-        transition: box-shadow 0.3s ease;
-        text-shadow: var(--text-shadow);
+        @apply lg:max-w-5xl w-full mx-auto px-4;
       }
       .text__glowing:hover {
         text-shadow: var(--text-shadow);
