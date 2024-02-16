@@ -34,20 +34,23 @@
     "THIRD": "Especializado en crear aplicaciones únicas."
   },
 
+  "ABOUT_TITLE": "Sobre mi",
+  "ABOUT_DESC": "<p><strong>Me llamo Jeferson Barrero</strong>, pero mis amigos me llaman Jef. Mi travesía en la programación comenzó a los 14 años de manera autodidacta, inspirado por figuras como <strong>Freddy Vegas</strong> y explorando la web. Esta inmersión temprana en el fascinante mundo de la programación fue mi primera ventana hacia la creatividad digital.</p><p>Como estudiante de <strong>PLATZI</strong> y partícipe en el proyecto '<strong>MisiónTIC2022</strong>', respaldado por el gobierno colombiano y el <strong>MINTIC</strong>, he consolidado sólidos conocimientos en <strong>programación</strong> y <strong>desarrollo web</strong>. Participar activamente en proyectos personales y colaborativos con clientes ha sido clave para fortalecer mis habilidades como <strong>programador</strong>.</p><p>Complementando este camino con cursos virtuales adicionales del <strong>SENA</strong> y mi actual formación en <strong>modelado 3D para la industria</strong>, aspiro a destacar en el ámbito del <strong>desarrollo web</strong> y la <strong>programación</strong>. Mi visión incluye no solo el crecimiento personal, sino también contribuir activamente a la comunidad. Como colaborador en <strong>GitHub</strong>, participo en proyectos destinados a fomentar el <strong>aprendizaje gratuito</strong> y <strong>abierto</strong> de programación.</p>",
+
   "EXPERIENCE_TITLE": "Experiencia",
   "EXPERIENCE": [
     {
-      "ICON": "<img src='/logo.svg' alt='logo' class='size-10'/>",
+      "ICON": "default",
       "TITLE": "Desarrollador web independiente",
       "DATE": "actualmente...",
-      "DESCRIPTION": "<p>Como <strong>desarrollador web independiente</strong>, me especializo en crear aplicaciones únicas para marcas y empresas, abarcando un espectro completo de necesidades, desde sitios estáticos hasta tiendas en línea. Mi enfoque se centra en proporcionar soluciones tecnológicas innovadoras y funcionales que se adapten a las metas y requerimientos específicos de cada cliente.</p>",
+      "DESCRIPTION": "<p>Me especializo en <strong>crear aplicaciones</strong> únicas para <strong>marcas y empresas</strong/>, abarcando un espectro completo de necesidades, desde sitios estáticos hasta tiendas en línea. Mi enfoque se centra en proporcionar soluciones tecnológicas innovadoras y funcionales que se adapten a las metas y requerimientos específicos de cada cliente.</p>",
       "LINK": "#web"
     },
     {
-      "ICON": "<img src='/logo_misiontic.png' width='40' height='40' alt='logo'/>",
+      "ICON": "default",
       "TITLE": "MisionTIC2022",
       "DATE": "septiembre 21",
-      "DESCRIPTION": "<p>Mi participación en <strong>Misión TIC 2022</strong>, desde su fase piloto en agosto de 2020, se caracterizó por una formación integral en proyectos web con un enfoque específico en <strong>Node.js</strong>. La colaboración activa con jóvenes de todo el país en proyectos conjuntos no solo amplió mis habilidades técnicas, sino que también proporcionó una valiosa experiencia de trabajo en equipo a nivel nacional.</p> <p>Las actividades complementarias, como las charlas de profesionales y la visita al <strong>Parque de los Empresarios</strong>, agregaron un valor significativo a mi formación. Las charlas ofrecieron perspectivas enriquecedoras y consejos prácticos, mientras que la visita al parque proporcionó una visión tangible de las necesidades tecnológicas del país. Estos elementos complementarios enriquecieron mi comprensión global y me brindaron una visión más profunda de la aplicación práctica de la tecnología en el contexto nacional.</p>"
+      "DESCRIPTION": "<p>Mi participación en <strong>Misión TIC 2022</strong>, desde su fase piloto en agosto de 2020, se caracterizó por un enfoque en proyectos web usando <strong>Node.js, Javascript, CSS, HTML, React</strong> y una colaboración activa con jóvenes de todo el país con proyectos en conjunto que ampliaron mis habilidades técnicas y proporcionaron una valiosa experiencia de trabajo en equipo.</p> <p>Además de actividades complementarias, como <strong>charlas con profesionales de la industria</strong> y la visita al <strong>Parque de los Empresarios</strong>, una experiencia enriquecedora que me brindo una comprensión más profunda de la aplicación práctica de la tecnología en el ámbito nacional, así como una percepción concreta de las demandas tecnológicas del país. </p>"
     }
   ],
 
@@ -92,6 +95,39 @@
     }
   ],
 
-  "ABOUT_TITLE": "Sobre mi",
-  "ABOUT_DESC": "<p><strong>Me llamo Jeferson Barrero</strong>, pero mis amigos me llaman Jef. Empecé en la programación a los 14 años de forma autodidacta, cuando exploraba sobre la web y descubría la programación. A lo largo de mi trayectoria, he desarrollado una apasionada dedicación al desarrollo web.</p> <p>Como estudiante de <strong>PLATZI</strong> y participante en el proyecto <strong>'MisiónTIC2022'</strong>, respaldado por el gobierno colombiano y el <strong><em>MINTIC</em></strong>, he logrado adquirir conocimientos sólidos en la programación y el desarrollo web. A través de la <strong>participación activa en proyectos personales y colaborativos con clientes</strong>, fortaleciendo mis habilidades, no solo como programador, sino también en la creación de aplicaciones únicas.</p> <p>Estas experiencias han sido mi puente hacia la aplicación práctica de conocimientos en diversos contextos, forjando de manera significativa mi perfil profesional. He complementado este camino con cursos virtuales adicionales con el <strong>SENA</strong> y, actualmente, soy estudiante de <strong><em>modelado 3D para la industria</strong></em>.</p> <p>Aspiro a destacar en el ámbito del desarrollo web y la programación. Mi visión incluye no solo el crecimiento personal sino también <strong><em>contribuir activamente a la comunidad</em></strong>. Soy un colaborador activo en <strong>GitHub</strong>, donde participo en proyectos destinados a fomentar el aprendizaje gratuito y abierto de programación.</p>"
+  "PROJECTS_TITLE": "Proyectos",
+  "PROJECT_CASE": "caso de estudio",
+
+  "SERVICES_MSG": "Descubre cómo podemos crear juntos el sitio web perfecto para tu marca o empresa. ¡Convierte tu visión en realidad hoy mismo!",
+  "SERVICES_BUTTON": "Descubrir más",
+
+  "CLIENTS_TITLE": "Clientes",
+  "CLIENTS_DESC": "",
+
+  "FOOTER_MSG": "Casi todos los derechos reservados.",
+  "FOOTER_LINK": "Sobre mi",
+
+  "ONE_PLAN_TITLE": "Nuestro plan para sitios estaticos",
+  "ONE_PLAN_DESC": "Un plan para emprendedores, marcas o pequeñas empresas que buscan establecer una presencia online impactante. Con nuestro enfoque simplificado, creamos sitios web estáticos elegantes y funcionales que destacan la identidad de tu marca.",
+  "ONE_PLAN_FEACTURES": [
+    "Diseño personalizado",
+    "Navegación intuitiva",
+    "Optimizado para dispositivos móviles",
+    "Soporte técnico básico",
+    "Gestión de contenido sencilla",
+    "SEO"
+  ],
+
+  "SERVICES_INTRO": "Desarrollando <strong> sitios web</strong> y <strong>aplicaciones</strong> <span>increibles</span>",
+  "SERVICES_TOOLS_DESC": "Integra lo utimo en tecnologia a tu proximo proyecto",
+
+  "TWO_PLAN_TITLE": "PLanes empresariales",
+  "TWO_PLAN_DESC": "Un plan diseñado para empresas en crecimiento, tiendas online y sitios web de mayor envergadura que requieren funcionalidades avanzadas. Con nuestro enfoque integral, creamos sitios web dinámicos, con backend y base de datos, para llevar tu presencia online al siguiente nivel.",
+  "TWO_PLAN_FEACTURES": [
+    "Caracteristicas del plan para sitios estaticos",
+    "Dominio personalizado (incluido)",
+    "Una base de datos (Postgres o sqlite)",
+    "Sistema de pagos (strapi, mercado pagos)",
+    "Seguridad garantizada"
+  ]
 }

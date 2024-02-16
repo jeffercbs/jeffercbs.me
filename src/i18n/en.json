@@ -34,17 +34,20 @@
     "THIRD": "Specialized in creating unique applications."
   },
 
+  "ABOUT_TITLE": "About me",
+  "ABOUT_DESC": "<p><strong>My name is Jeferson Barrero</strong>, but my friends call me Jef. My journey into programming began at the age of 14, self-taught and inspired by figures like <strong>Freddy Vegas</strong> while exploring the web. This early immersion into the fascinating world of programming was my first window into digital creativity.</p><p>As a student at <strong>PLATZI</strong> and participant in the project '<strong>MisiónTIC2022</strong>', backed by the Colombian government and <strong>MINTIC</strong>, I have gained solid knowledge in <strong>programming</strong> and <strong>web development</strong>. Actively participating in personal and collaborative projects with clients has been crucial to strengthening my skills, not only as a <strong>programmer</strong> but also in creating unique applications.</p><p>Complementing this journey with additional virtual courses from <strong>SENA</strong> and currently studying <strong>3D modeling</strong> for the industry, I aspire to excel in the field of <strong>web development</strong> and <strong>programming</strong>. My vision includes not only personal growth but also actively contributing to the community. As an active collaborator on <strong>GitHub</strong>, I participate in projects aimed at promoting <strong>free</strong> and <strong>open</strong> programming education.</p>",
+
   "EXPERIENCE_TITLE": "Experience",
   "EXPERIENCE": [
     {
-      "ICON": "<img src='/logo.svg' alt='logo' class='size-10'/>",
+      "ICON": "default",
       "TITLE": "Freelance Web Developer",
       "DATE": "Currently...",
       "DESCRIPTION": "<p>As an <strong>independent web developer</strong>, I specialize in crafting unique applications for brands and businesses, spanning a full spectrum of needs, from static websites to online stores. My focus is on delivering innovative and functional technological solutions tailored to the specific goals and requirements of each client.</p>",
       "LINK": "/services/web"
     },
     {
-      "ICON": "<img src='/logo_misiontic.png' width='40' height='40' alt='logo'/>",
+      "ICON": "default",
       "TITLE": "MisionTIC2022",
       "DATE": "September 2022",
       "DESCRIPTION": "<p>My participation in <strong>Misión TIC 2022</strong>, since its pilot phase in August 2020, was characterized by comprehensive training in web projects with a specific focus on <strong>Node.js</strong>. Actively collaborating with young individuals from across the country on joint projects not only expanded my technical skills but also provided a valuable experience of nationwide teamwork.</p> <p>Complementary activities, such as <strong>professional talks</strong> and the visit to the <strong>Entrepreneurs' Park</strong>, added significant value to my education. The talks offered enriching perspectives and practical advice, while the park visit provided a tangible insight into the technological needs of the country. These complementary elements enhanced my overall understanding and offered a deeper vision of the practical application of technology in the national context.</p>"
@@ -92,6 +95,37 @@
     }
   ],
 
-  "ABOUT_TITLE": "About me",
-  "ABOUT_DESC": "<p><strong>My name is Jeferson Barrero</strong>, but my friends call me Jef. I started programming at the age of 14 as a self-taught enthusiast, exploring the web and discovering the world of programming. Throughout my journey, I have developed a passionate dedication to web development.</p> <p>As a student at <strong>PLATZI</strong> and a participant in the <strong>'MisiónTIC2022'</strong> project, supported by the Colombian government and <em><strong>MINTIC</strong></em>, I have gained solid knowledge in various areas of programming and web development. Through <strong>involvement in personal and collaborative projects with clients</strong>, I have strengthened my skills, not only as a programmer but also in creating unique applications.</p> <p>These experiences have been my bridge to the practical application of knowledge in different contexts, significantly shaping my professional profile. I have complemented this journey with additional online courses with <strong>SENA</strong>, and currently, I am a student in <strong><em>3D modeling for the industry</em></strong>.</p> <p>I aspire to excel in the field of web development and programming. My vision includes not only personal growth but also <strong><em>actively contributing to the community</em></strong>. I am an active contributor on <strong><em>GitHub</em></strong>, participating in projects aimed at promoting free and open programming education.</p>"
+  "PROJECTS_TITLE": "Projects",
+  "PROJECT_CASE": "Case study",
+
+  "SERVICES_MSG": "Discover how we can together create the perfect website for your brand or company. Turn your vision into reality today!",
+  "SERVICES_BUTTON": "Discover more",
+
+  "CLIENTS_TITLE": "Clients",
+  "CLIENTS_DESC": "",
+
+  "FOOTER_MSG": "Almost all rights reserved",
+  "FOOTER_LINK": "About me",
+
+  "SERVICES_INTRO": "Developing <span>amazing</span> <strong> websites</strong> and <strong>applications</strong>",
+  "SERVICES_TOOLS_DESC": "Integrate the latest in technology to your next project",
+
+  "ONE_PLAN_TITLE": "Nuestro plan para sitios estaticos",
+  "ONE_PLAN_DESC": "A plan for entrepreneurs, brands, or small businesses looking to establish a compelling online presence. With our streamlined approach, we create elegant and functional static websites that showcase the identity of your brand.",
+  "ONE_PLAN_FEACTURES": [
+    "Diseño personalizado",
+    "Navegación intuitiva",
+    "Optimizado para dispositivos móviles",
+    "SEO básico",
+    "Gestión de contenido sencilla",
+    "Soporte técnico básico",
+    "Seguridad garantizada"
+  ],
+
+  "TWO_PLAN_TITLE": "Planes a otro nivel",
+  "TWO_PLAN_DESC": "Un plan diseñado para empresas en crecimiento, tiendas online y sitios web de mayor envergadura que requieren funcionalidades avanzadas. Con nuestro enfoque integral, creamos sitios web dinámicos, con backend y base de datos, para llevar tu presencia online al siguiente nivel.",
+  "TWO_PLAN_FEACTURES": [
+    "Una base de datos (Postgres o sqlite)",
+    "Sistema de pagos (strapi, mercado pagos)"
+  ]
 }
