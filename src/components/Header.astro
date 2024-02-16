@@ -8,18 +8,10 @@ const { currentLocale } = Astro;
 const i18n = getI18n({ currentLocale });
 ---
 
-<header class="fixed top-0 inset-x-0 w-full h-16 md:px-12 px-4 z-50">
-  <div class="size-full flex justify-between items-center">
-    <nav class="items-center gap-4 flex">
-      <img
-        loading="lazy"
-        src="https://github.com/jeffercb.png"
-        class="object-cover rounded-full"
-        width={40}
-        height={40}
-        alt="logo"
-      />
-    </nav>
+<header class="fixed top-0 inset-x-0 w-full h-14 pt-2 z-50">
+  <nav
+    class="h-full md:w-fit w-full mx-auto px-6 flex md:justify-between justify-end items-center rounded-full"
+  >
     <div class="md:flex hidden">
       <ul class="flex gap-x-6 mx-2 items-center" id="nav-items">
         {
@@ -41,7 +33,7 @@ const i18n = getI18n({ currentLocale });
     <button id="mobile-menu-toggle" role="menu" class="md:hidden flex">
       <Icon name="menu" class="size-8" />
     </button>
-  </div>
+  </nav>
   <MobileMenu />
 </header>
 
@@ -60,10 +52,10 @@ const i18n = getI18n({ currentLocale });
 </script>
 
 <style>
-  header {
+  nav {
     animation: blur linear both;
     animation-timeline: scroll();
-    animation-range: 0 400px;
+    animation-range: 0 100px;
   }
   @keyframes blur {
     to {

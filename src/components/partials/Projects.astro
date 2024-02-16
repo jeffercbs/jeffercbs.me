@@ -1,21 +1,29 @@
 ---
 import { getCollection } from "astro:content";
 import ProjectCard from "../ProjectCard.astro";
-const projects = await getCollection("projects")
+import { getI18n } from "@/i18n";
+const projects = await getCollection("projects");
+
+const { currentLocale } = Astro;
+const i18n = getI18n({ currentLocale });
 ---
 
-<section class="py-12 bg-black relative" id="projects">
-  <div class="hero flex flex-col gap-y-4 mb-6">
-    <h2
-      aria-label="projects"
-      class="text-2xl uppercase text-white/80 font-semibold"
-    >
-      Projects
-    </h2>
-  </div>
-  <div class="flex flex-col gap-y-6 w-full md:max-w-6xl mx-auto mt-12">
-    {projects.map(({data, slug}) => (
-      <ProjectCard {...data} link={slug} />
-    ))}
+<section class="py-12 relative" id="projects">
+  <div class="hero flex md:flex-row gap-8 flex-col">
+    <div class="mb-6 md:w-1/5">
+      <h2
+        aria-label="experience"
+        class="text-2xl uppercase text-white/80 font-semibold md:sticky top-0 py-4"
+      >
+        {i18n.PROJECTS_TITLE}
+      </h2>
+    </div>
+    <div class="flex flex-col gap-y-6 w-full flex-1">
+      {
+        projects
+          .reverse()
+          .map(({ data, slug }) => <ProjectCard {...data} link={slug} />)
+      }
+    </div>
   </div>
 </section>

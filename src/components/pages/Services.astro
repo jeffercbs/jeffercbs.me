@@ -1,25 +1,65 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Tool from "../Tool.astro";
+import Clients from "../partials/Clients.astro";
+import CodeDeco from "../CodeDeco.astro";
+import PriceCard from "../PriceCard.astro";
+import { getI18n } from "@/i18n";
 
-const { props } = Astro;
+const { props, currentLocale } = Astro;
+const i18n = getI18n({ currentLocale });
 ---
 
 <Layout title={props.title}>
-  <main class="mt-20 hero">
-    <div class="h-[220px] flex flex-col items-start justify-center">
-      <h2 class="flex flex-col md:text-4xl text-2xl">
-        <span>Building <span class="text-yellow-300">web</span></span>
-        <span><span>websites</span> and <span>apps</span></span>
-      </h2>
-    </div>
+  <div
+    class="absolute inset-0 z-[-2] w-full h-dvh bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+  >
+  </div>
+  <main class="hero">
+    <section class="h-dvh flex flex-col items-start justify-center relative">
+      <CodeDeco
+        class="absolute -right-8 top-14"
+        codelines={[
+          "/**",
+          " * HTML",
+          " * CSS",
+          " * JavaScript",
+          " * Responsive Design",
+          " * User Experience",
+          "**/",
+        ]}
+      />
+      <CodeDeco codelines={["hello()"]} />
+      <CodeDeco codelines={["const message = ''"]} />
+      <h2
+        class="md:text-6xl text-balance text-4xl font-semibold md:max-w-3xl [&>strong]:text-yellow-300 [&>strong]:font-mono [&>span]:underline [&>span]:font-mono"
+        set:html={i18n.SERVICES_INTRO}
+      />
+    </section>
 
-    <div class="flex">
-      <div class="w-2/6">
-        <h1>klasa</h1>
-        <p>Integra lo utimo en tecnologia a tu proximo proyecto</p>
+    <div class="flex md:flex-row flex-col gap-x-8 gap-y-4 mb-12 relative">
+      <CodeDeco
+        codelines={[
+          "/**",
+          " * design",
+          " * cms",
+          " * testing",
+          " * framework",
+          " * workflows",
+          " * libraries",
+          "**/",
+        ]}
+        class="absolute -top-10 -right-20 md:-right-36"
+      />
+      <div class="md:w-[30%] w-full grid place-content-center">
+        <p
+          class="text-2xl text-pretty font-mono"
+          set:text={i18n.SERVICES_TOOLS_DESC}
+        />
       </div>
-      <div class="flex-1 flex gap-4 flex-wrap">
+      <div
+        class="flex-1 grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-3 justify-center"
+      >
         {
           [
             "react",
@@ -36,5 +76,41 @@ const { props } = Astro;
         }
       </div>
     </div>
+
+    <Clients />
+
+    <section>
+      <div class="py-8 text-center my-9">
+        <h1 class="text-6xl font-bold">
+          <span class="text-orange-500"> Flexible</span>
+          Plans
+        </h1>
+      </div>
+      <div class="grid md:grid-cols-2 grid-cols-1 gap-8 mb-8">
+        {
+          [
+            {
+              title: i18n.ONE_PLAN_TITLE,
+              description: i18n.ONE_PLAN_DESC,
+              features: i18n.ONE_PLAN_FEACTURES,
+              price: 350000,
+            },
+            {
+              title: i18n.TWO_PLAN_TITLE,
+              description: i18n.TWO_PLAN_DESC,
+              features: i18n.TWO_PLAN_FEACTURES,
+              price: 800000,
+            },
+          ].map((plan) => <PriceCard {...plan} />)
+        }
+      </div>
+
+      <div
+        class="flex justify-between rounded-lg gap-4 py-3 px-6 border-2 border-orange-400 shadow-2xl shadow-orange-400/30"
+      >
+        <p>si no estas seguro de lo que necesitas completa el siguietne test</p>
+        <a href="/test"> encontrar lo que necesito</a>
+      </div>
+    </section>
   </main>
 </Layout>

@@ -11,6 +11,7 @@ export interface Props {
   ICON?: string;
   BUTTON_LABEL?: string;
   external?: boolean;
+  columns?: 1 | 2;
 }
 
 const {
@@ -22,38 +23,55 @@ const {
   ICON,
   CODE,
   external = false,
+  columns = 1,
 } = Astro.props;
 ---
 
 {
   ICON &&
-    (ICON.match(/\<\/?[^\>]+(\>|$)/g) ? (
-      <span set:html={ICON} class="absolute bg-black p-1 -start-6 rounded-lg" />
+    (ICON === "default" ? (
+      <svg
+        class="text-white/40 ring-white/40 bg-black absolute ring-1 rounded-full -start-4"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="28"
+        height="28"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M15.5 11.75a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zm1.444-.75a5.001 5.001 0 00-9.888 0H2.75a.75.75 0 100 1.5h4.306a5.001 5.001 0 009.888 0h4.306a.75.75 0 100-1.5h-4.306z"
+          fill="currentColor"
+        />
+      </svg>
     ) : (
-      <Icon name={ICON} class="absolute size-10 -start-5" />
+      <Icon name={ICON} class="absolute size-10 -start-4" />
     ))
 }
-<div class="ml-3 md:ml-6">
-  {
-    DATE && (
-      <time class="mb-1 text-sm font-normal leading-none text-sky-200/80">
-        {DATE}
-      </time>
-    )
-  }
-  <h3 class="text-lg font-semibold text-yellow-300 mt-2 leading-4">
-    {TITLE}
-  </h3>
-  {
-    CODE && (
-      <span
-        class="text-gray-200 text-pretty text-sm mb-4 w-full opacity-70"
-        set:text={CODE}
-      />
-    )
-  }
+<div
+  class:list={["ml-3 md:ml-6", { "flex md:flex-row flex-col": columns === 2 }]}
+>
+  <div class:list={[{ "md:max-w-[280px] w-full": columns === 2 }]}>
+    {
+      DATE && (
+        <time class="mb-1 text-sm font-normal leading-none text-sky-200/80">
+          {DATE}
+        </time>
+      )
+    }
+    <h3 class="text-xl font-semibold text-yellow-100 mt-2 leading-5">
+      {TITLE}
+    </h3>
+    {
+      CODE && (
+        <span
+          class="text-gray-200 text-pretty text-sm mb-4 w-full opacity-70"
+          set:text={CODE}
+        />
+      )
+    }
+  </div>
   <div
-    class="flex flex-col my-4 gap-y-4 [&>p]:text-base [&>p]:leading-tight [&>p]:text-white/80 [&>p]:text-pretty [&>p>strong]:underline"
+    class="flex flex-1 flex-col my-4 gap-y-4 [&>p]:text-[17px] [&>p]:leading-tight [&>p]:text-white/80 [&>p]:text-pretty [&>p>strong]:text-yellow-100 [&>p>strong]:font-mono"
     set:html={DESCRIPTION}
   />
 </div>

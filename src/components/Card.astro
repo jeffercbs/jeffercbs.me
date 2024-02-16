@@ -1,46 +1,48 @@
 ---
-import Badge from "./Badge.astro";
-import Link from "./Link.astro";
-
 export type Props = {
   title: string;
-  description?: string;
   cover?: string;
+  badge?: string;
   website?: string;
-  github?: string;
   class?: string;
 };
 
 const {
   title,
-  description,
-  cover = "/clients/remodelaciones.webp",
+  badge,
+  cover = "ar.webp",
   website,
-  github,
   class: classes,
 } = Astro.props;
 ---
 
-<article class="card group overflow-hidden bg-lime-400 text-black">
-  <div class="card-footer">
-    <div class="flex flex-col items-stretch gap-y-6">
-      <div class="block gap-y-2">
-        <span class="bg-black/10 text-gray-900 px-4 py-1 rounded-full text-sm">
-          remodelaciones
-        </span>
-        <h3 class="mt-8 text-4xl font-semibold capitalize" set:text={title} />
-        <p class="text-white/70" set:text={description} />
+<article class:list={["card mx-auto group", classes]}>
+  <a href={website} target="_blank" rel="noopener noreferrer">
+    <img src={`/_thumbnails/${cover}`} alt={title} class="size-full" />
+    <div class="card-footer">
+      <div class="flex flex-col items-stretch gap-y-6">
+        <div class="block gap-y-2">
+          <span
+            class="bg-black/10 text-gray-900 px-4 py-1 rounded-full text-sm"
+          >
+            {badge}
+          </span>
+          <h3
+            class="mt-8 text-4xl font-bold leading-8 text-balance capitalize"
+            set:text={title}
+          />
+        </div>
       </div>
     </div>
-  </div>
-
-  <style>
-    .card {
-      @apply relative w-full h-[600px] rounded-2xl shadow-gray-500/50;
-      @apply hover:shadow-2xl transition-shadow ease-out overflow-hidden mx-auto;
-    }
-    .card-footer {
-      @apply absolute inset-x-0 top-0 h-2/5 size-full p-8 z-20;
-    }
-  </style>
+  </a>
 </article>
+
+<style>
+  .card {
+    @apply w-full h-[550px] rounded-2xl shadow-gray-500/50 text-black relative;
+    @apply hover:shadow-2xl shadow-white/30 overflow-hidden;
+  }
+  .card-footer {
+    @apply absolute inset-x-0 top-0 h-2/5 size-full p-8 z-20;
+  }
+</style>

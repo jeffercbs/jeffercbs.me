@@ -1,0 +1,16 @@
+---
+export type Props = {
+  codelines: string[];
+  class?: string;
+};
+
+const { codelines, class: classes } = Astro.props;
+---
+
+<pre
+  class:list={[
+    "opacity-30 flex flex-col text-lg font-mono -z-[1]",
+    classes,
+  ]}>
+{codelines.map((line) => (<span style="vertical-align: inherit;">{line}</span>))}
+</pre>

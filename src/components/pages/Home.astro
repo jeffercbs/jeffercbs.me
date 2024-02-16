@@ -1,63 +1,44 @@
 ---
 import Intro from "@/components/partials/Intro.astro";
 import Layout from "@/layouts/Layout.astro";
-import Clients from "../partials/Clients.astro";
+import AboutMe from "../partials/AboutMe.astro";
 import Education from "../partials/Education.astro";
 import Experience from "../partials/Experience.astro";
 import Projects from "../partials/Projects.astro";
-import AboutMe from "../partials/AboutMe.astro";
+import Link from "../Link.astro";
+import { getI18n } from "@/i18n";
 
-const { props } = Astro;
+const { props, currentLocale } = Astro;
+const i18n = getI18n({ currentLocale });
 ---
 
 <Layout title={props.title}>
-  <main class="relative">
-    <div
-      class="fixed inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,#63e_100%)]"
-    >
-    </div>
+  <div
+    class="absolute inset-0 w-full h-dvh bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,#3d3720,rgba(255,255,255,0))]"
+  >
+  </div>
 
+  <main>
     <Intro />
     <AboutMe />
     <Experience />
     <Education />
     <Projects />
-    <Clients />
+
+    <div class="h-[400px] relative">
+      <div
+        class="absolute -z-[1] md:max-w-3xl mx-auto inset-0 bg-orange-400 bg-[size:20px_20px] opacity-20 blur-[100px]"
+      >
+      </div>
+
+      <div class="hero grid place-content-center text-center size-full z-10">
+        <p class="text-2xl font-semibold max-w-xl mx-auto font-mono">
+          {i18n.SERVICES_MSG}
+        </p>
+        <Link href="/services" class="mx-auto mt-12">
+          {i18n.SERVICES_BUTTON}
+        </Link>
+      </div>
+    </div>
   </main>
 </Layout>
-
-<!-- <script>
-  document.addEventListener("astro:page-load", function () {
-    const sections = document.querySelectorAll("section");
-    const title = document.querySelectorAll("section h2");
-
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          title.forEach((item) => {
-            if (item.getAttribute("aria-label") === entry.target.id) {
-              item.classList.add("sticky");
-            } else {
-              item.classList.remove("sticky");
-            }
-          });
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.5,
-    });
-
-    sections.forEach((element) => {
-      observer.observe(element);
-    });
-
-    // Cleanup function
-    window.onunload = () => {
-      observer.disconnect();
-    };
-  });
-</script> -->

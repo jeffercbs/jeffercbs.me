@@ -7,12 +7,12 @@ const { currentLocale } = Astro;
 const i18n = getI18n({ currentLocale });
 ---
 
-<section id="education" class="h-fit py-8 bg-black relative">
+<section id="education" class="h-fit py-8 relative">
   <div class="hero flex md:flex-row flex-col py-8">
     <div class="mb-6 md:w-1/5">
       <h2
-        aria-label="education"
-        class="text-2xl uppercase text-white/80 font-semibold"
+        aria-label="experience"
+        class="text-2xl uppercase text-white/80 font-semibold md:sticky top-0 py-4"
       >
         {i18n.EDUCATION_TITLE}
       </h2>

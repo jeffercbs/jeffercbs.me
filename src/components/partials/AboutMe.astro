@@ -9,30 +9,26 @@ const i18n = getI18n({ currentLocale });
   id="about"
   class="h-fit py-14 bg-gradient-to-b from-transparent via-black/70 to-black"
 >
-  <div class="hero flex md:flex-row flex-col">
-    <div class="mb-6 md:w-1/5">
-      <h2
-        aria-label="about"
-        class="text-2xl sticky top-10 uppercase text-white/80 font-semibold"
-      >
-        {i18n.ABOUT_TITLE}
-      </h2>
-    </div>
-    <div class="flex-1 flex md:flex-row flex-col gap-x-8 gap-y-4 my-4">
+  <div class="hero flex md:flex-row gap-8 flex-col">
+    <div class="md:w-2/5 w-full flex items-center justify-center px-6">
       <div
-        class="flex flex-col flex-1 gap-y-4 md:order-1 order-2 [&>p]:text-pretty [&>p>em]:italic [&>p>strong]:px-1 [&>p>strong]:text-yellow-300"
-        set:html={i18n.ABOUT_DESC}
-      />
-      <div class="md:w-72 w-full flex justify-center md:order-2 order-1">
+        class="p-4 relative h-[420px] rounded-lg border-2 border-gray-600 -rotate-3"
+      >
         <img
-          src="https://th.bing.com/th/id/OIP.ieIWvoa9XTzDKgOA1Ns0UgAAAA?rs=1&pid=ImgDetMain"
+          src="/avatar.webp"
           loading="lazy"
-          width="360"
-          height="360"
-          class="rounded-lg object-cover shadow-2xl"
+          width="320"
+          height="420"
+          class="rounded-lg size-full object-cover shadow-2xl shadow-white/10"
           alt="i am jeffercbs"
         />
       </div>
+    </div>
+    <div class="flex-1 flex md:flex-row flex-col gap-x-8 gap-y-4 my-4">
+      <div
+        class="flex flex-col flex-1 gap-y-4 md:order-1 order-2 [&>p]:text-[17px] [&>p]:text-pretty [&>p>em]:italic [&>p>strong]:font-mono [&>p>strong]:px-1 [&>p>strong]:text-yellow-100"
+        set:html={i18n.ABOUT_DESC}
+      />
     </div>
   </div>
 </section>

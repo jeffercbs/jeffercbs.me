@@ -1,0 +1,45 @@
+---
+import { Icon } from "astro-icon/components";
+
+export type Props = {
+  title: string;
+  description: string;
+  price: number;
+  features: string[];
+};
+
+const { title, description, price, features } = Astro.props;
+---
+
+<div
+  class="relative size-fit overflow-hidden rounded-xl border border-gray-800 p-1 backdrop-blur-3xl"
+>
+  <span
+    class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
+  ></span>
+  <article
+    class="bg-neutral-900 border backdrop-blur-3xl inline-flex border-white/40 rounded-lg p-10"
+  >
+    <div>
+      <h2 class="text-xl font-semibold pb-4">{title}</h2>
+      <div class="block">
+        <span class="text-6xl font-black">${price}</span>
+        <p class="text-sm mt-2 opacity-80">{description}</p>
+      </div>
+
+      <div class="pt-6">
+        <p class="text-white/50">Este plan incluye desde:</p>
+        <ul class="flex flex-col mt-2 gap-y-1">
+          {
+            features.map((feacture) => (
+              <li class="flex gap-x-3">
+                <Icon name="check" class="size-6 text-orange-500" />
+                {feacture}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </article>
+</div>
